@@ -1,0 +1,89 @@
+@import '../../common/_fabric';
+@import '../../common/_mixins';
+
+$headerHeight: 50px;
+
+.header {
+    background-color: #333;
+    @include flex-child-sizeFixed($headerHeight);
+    @include flex-parent(row);
+    
+    .header-content {
+        @include flex-parent(row);
+        align-items: center;
+        width: 90%;    
+        max-width:1260px;
+        margin-right: auto;
+        margin-left: auto;
+
+        .title {
+            @include flex-parent(row);
+            @include ms-font-xl();
+            align-items: center;
+            color: white;
+            @include flex-child-sizeFlexible(auto);
+
+            :first-child {
+                padding-left: 20px;
+            }
+
+            .ms-Icon {
+                padding-right: 20px;
+            }
+
+            .title-text {
+                margin-left: 5px;
+            }
+        }
+
+        .links {
+            @include flex-parent(row);
+            align-items: center;
+            height: 100%;
+
+            .link {
+                @include flex-parent(row);
+                align-items: center;
+                height: 100%;
+                min-width: 50px;
+
+                &:hover {
+                    background-color: $ms-color-themePrimary;
+                }
+                
+                a {
+                    margin-left: 15px;
+                    margin-right: 15px;
+                    flex: auto;
+                    text-align: center;
+                    text-decoration: none;
+                    color: white;
+                    @include ms-font-l();
+                }
+            }
+        }
+
+        .right-container {
+            @include flex-child-sizeFixed(auto);
+        }
+
+        .header-button {
+            height: $headerHeight;
+            @include flex-parent(row);
+            align-items: center;
+            cursor: pointer;
+            user-select: none;
+
+            .header-button-content {
+                padding: 0 20px 0 20px;
+                @include ms-font-l;
+                text-transform: uppercase;
+                color: white;
+            }
+
+            &:hover {
+                background-color: $ms-color-themePrimary;
+            }
+        }
+    }
+}

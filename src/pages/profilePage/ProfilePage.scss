@@ -1,0 +1,6 @@
+@import '../../common/_fabric';
+@import '../../common/_mixins';
+
+.profile-page {
+    @include flex-parent(column);
+}
