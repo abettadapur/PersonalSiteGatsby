@@ -6,30 +6,56 @@ import { Me } from "../../components/me/Me";
 import { Section } from "../../components/section/Section";
 import { TopNav } from "../../components/topNav/TopNav";
 
+type SectionInfo = {
+    id: string;
+    navTitle: string;
+    title: string;
+    className?: string;
+    backgroundColor?: string;
+    element: JSX.Element;
+};
+
 export class ProfilePage extends React.Component<{}, {}> {
-    private sections = [{
-        id: "section1",
-        title: "Section 1",
+
+    private sections: SectionInfo[] = [{
+        id: "home",
+        navTitle: "Home",
+        title: "",
+        className: "hero",
+        element: <Me title="Alex Bettadapur" imageSrc="http://alex.bettadapur.com/img/me.jpg" />
+    },
+    {
+        id: "about",
+        navTitle: "About",
+        title: "About",
+        backgroundColor: "#333",
         element: <div style={{ backgroundColor: "blue", height: 300, flex: "auto" }} />
     },
     {
-        id: "section2",
-        title: "Section 2",
+        id: "skills",
+        navTitle: "Skills",
+        title: "Skills",
+        backgroundColor: "#333",
         element: <div style={{ backgroundColor: "blue", height: 300, flex: "auto" }} />
     },
     {
-        id: "section3",
-        title: "Section 3",
+        id: "project",
+        navTitle: "Project",
+        title: "Project",
+        backgroundColor: "#333",
         element: <div style={{ backgroundColor: "blue", height: 300, flex: "auto" }} />
     },
     {
-        id: "section4",
-        title: "Section 4",
+        id: "timeline",
+        navTitle: "Timeline",
+        title: "Timeline",
+        backgroundColor: "#333",
         element: <div style={{ backgroundColor: "blue", height: 300, flex: "auto" }} />
-    },
-    {
-        id: "section5",
-        title: "Section 5",
+    }, {
+        id: "contact",
+        navTitle: "Contact",
+        title: "Contact",
+        backgroundColor: "#333",
         element: <div style={{ backgroundColor: "blue", height: 300, flex: "auto" }} />
     }];
 
@@ -44,13 +70,18 @@ export class ProfilePage extends React.Component<{}, {}> {
 
                 <div className="profile-page-sections">
                     {this.sections.map((section) => (
-                        <Section id={section.id}>
+                        <Section
+                            id={section.id}
+                            className={section.className}
+                            title={section.title}
+                            backgroundColor={section.backgroundColor}
+                        >
                             {section.element}
                         </Section>
                     ))}
                 </div>
 
-                <DotNav links={this.sections.map(section => ({ title: section.title, href: section.id }))} />
+                <DotNav links={this.sections.map(section => ({ title: section.navTitle, href: section.id }))} />
             </div>
         )
     }

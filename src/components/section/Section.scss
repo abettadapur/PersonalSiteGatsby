@@ -2,12 +2,40 @@
 @import '../../common/_mixins';
 
 .section {
-    @include flex-parent(row);
-    align-items: center;
-    max-width: 1260px;
+    @include flex-parent(column);
+    
+    
     margin-left: auto;
     margin-right: auto;
 
     padding-top: 15px;
     padding-bottom: 15px;
+
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+
+    color: white;
+
+    > .section-title {
+        @include flex-parent(row);
+        @include ms-font-xxl;
+        margin-left: 20px;
+
+        .section-title-underline {
+            height: 2px;
+            margin-top: 10px;
+            background-color: $ms-color-themePrimary;
+        }
+    }
+
+    > .section-content {
+        @include flex-parent(row);
+        margin-left: auto;
+        margin-right: auto;
+        align-items: center;
+        width: 90%;
+        max-width: 1600px;
+    }
 }

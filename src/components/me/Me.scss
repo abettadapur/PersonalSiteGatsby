@@ -5,6 +5,8 @@
     @include flex-parent(row);
     margin-left: auto;
     margin-right: auto;
+    height: 50vh;
+    max-height: 800px;
 
     .me-picture {
         flex: none;
