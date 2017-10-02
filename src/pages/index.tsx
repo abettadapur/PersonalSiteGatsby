@@ -1,7 +1,7 @@
 import * as  React from 'react';
 import { default as Link } from 'gatsby-link';
 
-import { ProfilePage } from "./profilePage/ProfilePage";
+import { ProfilePage } from "../components/profilePage/ProfilePage";
 
 export default ({ data }) => {
     console.log(data);
