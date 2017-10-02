@@ -1,0 +1,6 @@
+@import '../../common/_fabric';
+@import '../../common/_mixins';
+
+.about {
+    @include ms-font-l;
+}

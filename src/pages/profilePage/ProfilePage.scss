@@ -3,4 +3,35 @@
 
 .profile-page {
     @include flex-parent(column);
+
+    .profile-nav {
+        @include flex-parent(column);
+        position: fixed;
+        top: 0;
+        width: 100vw;
+        padding: 0px;
+        transition: padding 0.3s ease-in-out;
+        z-index: 2;
+
+        .header {
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        &.transparent {
+            padding: 20px 0px;
+            .header {
+                background-color: transparent;
+            }
+        }
+    }
+
+    .me-section {
+        background: linear-gradient(rgba(0,0,0, 0.50), rgba(0,0,0, 0.50)), url(http://alex.bettadapur.com/img/intro-bg.jpg);
+        background-size: cover;
+    }
+
+    .timeline-section {
+        background: linear-gradient(rgba(0,0,0, 0.75), rgba(0,0,0, 0.75)), url(https://upload.wikimedia.org/wikipedia/commons/6/66/HD-Wallpapers1.jpg);
+        background-size: cover;
+    }
 }

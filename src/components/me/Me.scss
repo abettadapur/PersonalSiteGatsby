@@ -1,34 +1,40 @@
 @import '../../common/_fabric';
 @import '../../common/_mixins';
 
-.me {
+.me-container {
     @include flex-parent(row);
+    align-items: center;
     margin-left: auto;
     margin-right: auto;
-    height: 50vh;
+    height: 75vh;
     max-height: 800px;
 
-    .me-picture {
-        flex: none;
-        margin-right: 20px;
+    .me {
+        @include flex-parent(row);
+        align-items: center;
 
-        img {
-            max-height: 150px;
-            max-width: 150px;
-            border-radius: 100%;
-        }
-    }
+        .me-picture {
+            flex: none;
+            margin-right: 20px;
 
-    .me-description {
-        @include flex-parent(column);
-        flex: auto;
-
-        .me-title {
-            @include ms-font-xxl();
+            img {
+                max-height: 150px;
+                max-width: 150px;
+                border-radius: 100%;
+            }
         }
 
-        .me-blurb {
-            @include ms-font-m();
+        .me-description {
+            @include flex-parent(column);
+            flex: auto;
+
+            .me-title {
+                @include ms-font-xxl();
+            }
+
+            .me-blurb {
+                @include ms-font-m();
+            }
         }
     }
 }

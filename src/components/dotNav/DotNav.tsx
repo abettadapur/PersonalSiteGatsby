@@ -22,7 +22,7 @@ export class DotNav extends React.Component<IDotNavProps, {}> {
 
     private renderDotNavItem(link: IDotNavLink): JSX.Element {
         return (
-            <a className="dot-nav-item" onClick={(event) => this.onDotNavItemClicked(event, link)}>
+            <a className="dot-nav-item" onClick={(event) => this.onDotNavItemClicked(event, link)} key={link.href}>
                 <div className="dot-title">
                     {link.title}
                 </div>

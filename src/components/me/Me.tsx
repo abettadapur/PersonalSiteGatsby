@@ -9,16 +9,18 @@ export interface IMeProps {
 export class Me extends React.Component<IMeProps, {}> {
     public render(): JSX.Element {
         return (
-            <div className="me">
-                <div className="me-picture">
-                    <img src={this.props.imageSrc} />
-                </div>
-                <div className="me-description">
-                    <div className="me-title">
-                        {this.props.title}
+            <div className="me-container">
+                <div className="me">
+                    <div className="me-picture">
+                        <img src={this.props.imageSrc} />
                     </div>
-                    <div className="me-blurb">
-                        Description about me
+                    <div className="me-description">
+                        <div className="me-title">
+                            {this.props.title}
+                        </div>
+                        <div className="me-blurb">
+                            Description about me
+                    </div>
                     </div>
                 </div>
             </div>

@@ -2,11 +2,13 @@ import * as React from "react";
 import "./Timeline.scss";
 
 export interface ITimelineItem {
+    id: number;
     title: string;
     subTitle: string;
     content: string;
     dateTitle: string;
     icon: string;
+    tags: string[];
 }
 
 export interface ITimelineProps {
@@ -24,12 +26,12 @@ export class Timeline extends React.Component<ITimelineProps, {}> {
 
     private renderTimelineItem(item: ITimelineItem): JSX.Element {
         return (
-            <div className="timeline-item">
+            <div className="timeline-item" key={item.id}>
                 <div className="timeline-date-title">
                     {item.dateTitle}
                 </div>
                 <div className="timeline-img">
-                    <i className="fa fa-graduation-cap" />
+                    <i className={`fa fa-${item.icon}`} />
                 </div>
                 <div className="timeline-content">
                     <div className="timeline-title">
@@ -40,6 +42,13 @@ export class Timeline extends React.Component<ITimelineProps, {}> {
                     </div>
                     <div className="timeline-description">
                         {item.content}
+                    </div>
+                    <div className="timeline-tags">
+                        {item.tags && item.tags.map(tag => (
+                            <div className="timeline-tag">
+                                {tag}
+                            </div>
+                        ))}
                     </div>
                 </div>
             </div>

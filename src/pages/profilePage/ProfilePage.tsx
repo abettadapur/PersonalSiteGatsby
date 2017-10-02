@@ -1,11 +1,16 @@
 import * as React from "react";
 import "./ProfilePage.scss";
 
+import { About } from "../../components/about/About";
 import { DotNav } from "../../components/dotNav/DotNav";
 import { Me } from "../../components/me/Me";
 import { Section } from "../../components/section/Section";
-import { Timeline } from "../../components/timeline/Timeline";
+import { Timeline, ITimelineItem } from "../../components/timeline/Timeline";
 import { TopNav } from "../../components/topNav/TopNav";
+
+import { css } from "@uifabric/utilities/lib/css";
+
+export { ITimelineItem }
 
 type SectionInfo = {
     id: string;
@@ -16,76 +21,42 @@ type SectionInfo = {
     element: JSX.Element;
 };
 
-export class ProfilePage extends React.Component<{}, {}> {
+export interface IProfilePageProps {
+    aboutText: string;
+    timelineItems: ITimelineItem[];
+}
 
-    private sections: SectionInfo[] = [{
-        id: "home",
-        navTitle: "Home",
-        title: "",
-        className: "hero",
-        element: <Me title="Alex Bettadapur" imageSrc="http://alex.bettadapur.com/img/me.jpg" />
-    },
-    {
-        id: "about",
-        navTitle: "About",
-        title: "About",
-        backgroundColor: "#333",
-        element: <div style={{ backgroundColor: "blue", height: 300, flex: "auto" }} />
-    },
-    {
-        id: "skills",
-        navTitle: "Skills",
-        title: "Skills",
-        backgroundColor: "#333",
-        element: <div style={{ backgroundColor: "blue", height: 300, flex: "auto" }} />
-    },
-    {
-        id: "project",
-        navTitle: "Project",
-        title: "Project",
-        backgroundColor: "#333",
-        element: <div style={{ backgroundColor: "blue", height: 300, flex: "auto" }} />
-    },
-    {
-        id: "timeline",
-        navTitle: "Timeline",
-        title: "Timeline",
-        backgroundColor: "#333",
-        element: <Timeline items={[{
-            title: "Microsoft",
-            subTitle: "VSTS",
-            content: "Worked at VSTS",
-            dateTitle: "2017-present",
-            icon: ""
-        },
-        {
-            title: "Microsoft",
-            subTitle: "VSTS",
-            content: "Worked at VSTS",
-            dateTitle: "2017-present",
-            icon: ""
-        }]} />
-    }, {
-        id: "contact",
-        navTitle: "Contact",
-        title: "Contact",
-        backgroundColor: "#333",
-        element: <div style={{ backgroundColor: "blue", height: 300, flex: "auto" }} />
-    }];
+export interface IProfilePageState {
+    isScrollTop: boolean;
+}
+
+export class ProfilePage extends React.Component<IProfilePageProps, IProfilePageState> {
+    private profilePage: HTMLDivElement;
+
+    constructor(props: IProfilePageProps, context: any) {
+        super(props, context);
+        this.scrollListener = this.scrollListener.bind(this);
+
+        this.state = { isScrollTop: true };
+    }
 
     public render(): JSX.Element {
+        let sections = this.getSections();
         return (
-            <div className="profile-page">
-                <TopNav title="Alex Bettadapur" links={[{
-                    title: "Blog",
-                    url: "blog"
-                }]} />
+            <div className="profile-page" ref={(element) => this.profilePage = element}>
+                <div className={css("profile-nav", { "transparent": this.state.isScrollTop })}>
+                    <TopNav title="Alex Bettadapur" links={[{
+                        title: "Blog",
+                        url: "blog"
+                    }]} />
+                </div>
 
 
                 <div className="profile-page-sections">
-                    {this.sections.map((section) => (
+                    {sections.map((section) => (
                         <Section
                             id={section.id}
+                            key={section.id}
                             className={section.className}
                             title={section.title}
                             backgroundColor={section.backgroundColor}
@@ -95,8 +66,68 @@ export class ProfilePage extends React.Component<{}, {}> {
                     ))}
                 </div>
 
-                <DotNav links={this.sections.map(section => ({ title: section.navTitle, href: section.id }))} />
+                <DotNav links={sections.map(section => ({ title: section.navTitle, href: section.id }))} />
             </div>
         )
+    }
+
+    public componentDidMount(): void {
+        window.addEventListener("scroll", this.scrollListener);
+    }
+
+    public componentWillUnmount(): void {
+        window.removeEventListener("scroll", this.scrollListener);
+    }
+
+    private scrollListener(): void {
+        let isScrollTop = document.documentElement.scrollTop === 0;
+        if (this.state.isScrollTop !== isScrollTop) {
+            this.setState({ isScrollTop: isScrollTop });
+        }
+    }
+
+    private getSections(): SectionInfo[] {
+        return [{
+            id: "home",
+            navTitle: "Home",
+            title: "",
+            className: "me-section",
+            element: <Me title="Alex Bettadapur" imageSrc="http://alex.bettadapur.com/img/me.jpg" />
+        },
+        {
+            id: "about",
+            navTitle: "About",
+            title: "About",
+            backgroundColor: "#333",
+            element: <About text={this.props.aboutText} />
+        },
+        {
+            id: "skills",
+            navTitle: "Skills",
+            title: "Skills",
+            backgroundColor: "#333",
+            element: <div style={{ backgroundColor: "blue", height: 300, flex: "auto" }} />
+        },
+        {
+            id: "project",
+            navTitle: "Project",
+            title: "Project",
+            backgroundColor: "#333",
+            element: <div style={{ backgroundColor: "blue", height: 300, flex: "auto" }} />
+        },
+        {
+            id: "timeline",
+            navTitle: "Experience",
+            title: "Experience",
+            backgroundColor: "#333",
+            className: "timeline-section",
+            element: <Timeline items={this.props.timelineItems} />
+        }, {
+            id: "contact",
+            navTitle: "Contact",
+            title: "Contact",
+            backgroundColor: "#333",
+            element: <div style={{ backgroundColor: "blue", height: 300, flex: "auto" }} />
+        }];
     }
 }

@@ -12,6 +12,7 @@
     .dot-nav-item {
         cursor: pointer;
         @include flex-parent(row);
+        justify-content: flex-end;
         align-items: center;
         margin-top: 3px;
         margin-bottom: 3px;
@@ -39,7 +40,6 @@
         .dot {
             height: 10px;
             width: 10px;
-            margin-left: auto;
             background-color: $ms-color-neutralTertiary;
             border-radius: 100%;
             transition: 0.25s background-color;

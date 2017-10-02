@@ -24,7 +24,7 @@ export class TopNav extends React.Component<ITopNavProps, {}> {
                     </div>
                     <div className="links">
                         {this.props.links.map((link: ILink) => (
-                            <div className="link">
+                            <div className="link" key={link.url}>
                                 <Link to={link.url}>
                                     {link.title}
                                 </Link>
