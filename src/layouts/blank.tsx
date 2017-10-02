@@ -4,5 +4,10 @@ import * as React from "react";
 import { TopNav } from "../components/topNav/TopNav";
 
 export default ({ children }) => {
-    return children();
+    return (
+        <div>
+
+            {children()}
+        </div>
+    );
 }

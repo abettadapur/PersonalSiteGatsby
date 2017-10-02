@@ -4,6 +4,7 @@ import "./ProfilePage.scss";
 import { DotNav } from "../../components/dotNav/DotNav";
 import { Me } from "../../components/me/Me";
 import { Section } from "../../components/section/Section";
+import { Timeline } from "../../components/timeline/Timeline";
 import { TopNav } from "../../components/topNav/TopNav";
 
 type SectionInfo = {
@@ -50,7 +51,20 @@ export class ProfilePage extends React.Component<{}, {}> {
         navTitle: "Timeline",
         title: "Timeline",
         backgroundColor: "#333",
-        element: <div style={{ backgroundColor: "blue", height: 300, flex: "auto" }} />
+        element: <Timeline items={[{
+            title: "Microsoft",
+            subTitle: "VSTS",
+            content: "Worked at VSTS",
+            dateTitle: "2017-present",
+            icon: ""
+        },
+        {
+            title: "Microsoft",
+            subTitle: "VSTS",
+            content: "Worked at VSTS",
+            dateTitle: "2017-present",
+            icon: ""
+        }]} />
     }, {
         id: "contact",
         navTitle: "Contact",
