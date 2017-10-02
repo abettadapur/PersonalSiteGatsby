@@ -1,0 +1,32 @@
+@import '../../common/_fabric';
+@import '../../common/_mixins';
+
+.me {
+    @include flex-parent(row);
+    margin-left: auto;
+    margin-right: auto;
+
+    .me-picture {
+        flex: none;
+        margin-right: 20px;
+
+        img {
+            max-height: 150px;
+            max-width: 150px;
+            border-radius: 100%;
+        }
+    }
+
+    .me-description {
+        @include flex-parent(column);
+        flex: auto;
+
+        .me-title {
+            @include ms-font-xxl();
+        }
+
+        .me-blurb {
+            @include ms-font-m();
+        }
+    }
+}

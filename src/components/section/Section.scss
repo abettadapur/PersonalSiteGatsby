@@ -1,0 +1,13 @@
+@import '../../common/_fabric';
+@import '../../common/_mixins';
+
+.section {
+    @include flex-parent(row);
+    align-items: center;
+    max-width: 1260px;
+    margin-left: auto;
+    margin-right: auto;
+
+    padding-top: 15px;
+    padding-bottom: 15px;
+}

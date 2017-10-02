@@ -1,0 +1,43 @@
+@import '../../common/_fabric';
+@import '../../common/_mixins';
+
+.dot-nav {
+    position: fixed;
+    top: 50%;
+    bottom: auto;
+    right: 34px;
+    transform: translateY(-50%);
+    @include flex-parent(column);
+
+    .dot-nav-item {
+        cursor: pointer;
+        @include flex-parent(row);
+        align-items: center;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        
+        &.selected,
+        &:hover {
+            .dot-title {
+                opacity: 1;
+            }
+            .dot {
+                background-color: $ms-color-themePrimary;
+            }
+        }
+
+        .dot-title {
+            opacity: 0;
+            margin-right: 15px;
+            transition: 0.25s opacity;
+        }
+
+        .dot {
+            height: 15px;
+            width: 15px;
+            background-color: $ms-color-neutralTertiary;
+            border-radius: 100%;
+            transition: 0.25s background-color;
+        }
+    }
+}
