@@ -1,4 +1,5 @@
 import * as React from "react";
+import { AssetResolver } from "../../assets/AssetResolver";
 import "./Timeline.scss";
 
 export interface ITimelineItem {
@@ -7,7 +8,8 @@ export interface ITimelineItem {
     subTitle: string;
     content: string;
     dateTitle: string;
-    icon: string;
+    icon?: string;
+    imageSrc?: string;
     tags: string[];
 }
 
@@ -31,7 +33,7 @@ export class Timeline extends React.Component<ITimelineProps, {}> {
                     {item.dateTitle}
                 </div>
                 <div className="timeline-img">
-                    <i className={`fa fa-${item.icon}`} />
+                    {this.renderImage(item)}
                 </div>
                 <div className="timeline-content">
                     <div className="timeline-title">
@@ -53,5 +55,13 @@ export class Timeline extends React.Component<ITimelineProps, {}> {
                 </div>
             </div>
         )
+    }
+
+    private renderImage(item: ITimelineItem): JSX.Element {
+        if (item.imageSrc) {
+            return <img src={AssetResolver.resolveAsset(item.imageSrc)} />;
+        } else if (item.icon) {
+            return <i className={`fa fa-${item.icon}`} />;
+        }
     }
 }

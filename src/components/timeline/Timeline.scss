@@ -54,6 +54,11 @@
                 background-color: $ms-color-themePrimary;
             }
 
+            img {
+                max-width: 60%;
+                max-height: 60%;
+            }
+
             @media(min-width: 768px) {
                 margin-left: 30px;
             }
@@ -95,13 +100,15 @@
 
             .timeline-tags {
                 @include flex-parent(row);
+                flex-wrap: wrap;
                 align-items: center;
 
                 .timeline-tag {
                     @include ms-font-s;
                     padding: 3px;
-                    border-radius: 10%;
+                    border-radius: 5px;
                     background-color: $ms-color-themePrimary;
+                    margin-top: 10px;
                     margin-right: 10px;
                     min-width: 30px;
                     text-align: center;
@@ -118,6 +125,12 @@
                 transform: rotate(45deg);  
                 background-color: rgba(0,0,0,0.25);
                 
+            }
+        }
+
+        @media(max-width: 768px) {
+            .timeline-content {
+                width: 90%;
             }
         }
     }

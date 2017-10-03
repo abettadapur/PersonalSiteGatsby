@@ -1,6 +1,15 @@
 [
     {
         "about": "I am currently a junior software developer at Microsoft in Seattle, working on the Microsoft Project team. I started my journey in Computer Science at the Georgia Institute of Technology in Atlanta, where I graduated with a Bachelors in Computer Science in December 2015. In pursuing my degree, I’ve concentrated on system architecture and computer networking. \nAdditionally, I served as President of GITMAD, the mobile application club on campus. I’ve also completed three software development internships. In2013, I worked at IgnitionOne, a digital marketing firm, on the DevOps team where I configured the Hubot chatbot and helped set up a new continuous integration system using OctopusDeploy. In2014, I worked at Rackspace Hosting on the Openstack Marconi (now Zaqar) project and implementing a RabbitMQ cluster orchestration system. In2015, I was at Microsoft in Seattle on the Project Server team where I was able to work with a huge .NET codebase and SQL Server. Most recently, I worked at an Atlanta based cloud startup, Cirrity, where I worked on their new ASP.NET MVC customer portal. When I’m not working, I enjoy trying my hand at photography, working on my personal music player, trying hard to learn more Chinese and playing jazz on the saxophone.",
+        "skills": [
+            {
+                "title": "React",
+                "iconClass": "",
+                "imageSrc": "react"
+            },
+            {},
+            {}
+        ],
         "timeline": [
             {
                 "id": 1,
@@ -8,7 +17,7 @@
                 "subTitle": "Visual Studio Team Services",
                 "content": "Junior software developer on the Visual Studio Team Services team",
                 "dateTitle": "2017 - Present",
-                "icon": "windows",
+                "imageSrc": "visualstudio",
                 "tags": [
                     "React",
                     "Typescript",
@@ -21,7 +30,7 @@
                 "subTitle": "Project",
                 "content": "Junior software developer on the Microsoft Project team.",
                 "dateTitle": "2016 - 2017",
-                "icon": "windows",
+                "imageSrc": "project",
                 "tags": [
                     "React",
                     "Typescript",

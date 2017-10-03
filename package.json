@@ -14,7 +14,8 @@
     "gatsby-source-filesystem": "^1.5.1",
     "gatsby-transformer-json": "^1.0.7",
     "jquery": "^3.2.1",
-    "office-ui-fabric-react": "^5.2.1"
+    "office-ui-fabric-react": "^5.2.1",
+    "react-markdown": "^2.5.0"
   },
   "keywords": [
     "gatsby"

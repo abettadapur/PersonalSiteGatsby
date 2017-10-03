@@ -1,0 +1,6 @@
+@import '../../common/_fabric';
+@import '../../common/_mixins';
+
+.skills {
+    @include flex-parent(row);
+}
