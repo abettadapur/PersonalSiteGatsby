@@ -4,6 +4,7 @@ import "./ProfilePage.scss";
 import { About } from "../../components/about/About";
 import { DotNav } from "../../components/dotNav/DotNav";
 import { Me } from "../../components/me/Me";
+import { ProjectsSection } from "../projects/ProjectsSection";
 import { Section } from "../../components/section/Section";
 import { Skills, SkillItem } from "../../components/skills/Skills";
 import { Timeline, ITimelineItem } from "../../components/timeline/Timeline";
@@ -108,14 +109,15 @@ export class ProfilePage extends React.Component<IProfilePageProps, IProfilePage
             navTitle: "Skills",
             title: "Skills",
             backgroundColor: "#333",
+            className: "skills-section",
             element: <Skills skills={this.props.skills} />
         },
         {
             id: "project",
-            navTitle: "Project",
-            title: "Project",
+            navTitle: "Projects",
+            title: "Projects",
             backgroundColor: "#333",
-            element: <div style={{ backgroundColor: "blue", height: 300, flex: "auto" }} />
+            element: <ProjectsSection projects={[]} />
         },
         {
             id: "timeline",

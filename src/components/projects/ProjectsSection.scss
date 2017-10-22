@@ -1,0 +1,35 @@
+@import '../../common/_fabric';
+@import '../../common/_mixins';
+
+.projects-section {
+    @include flex-child-sizeFlexible();
+    max-width: 1650px;
+    
+    .project {
+        .project-header {
+            @include flex-parent(row);
+
+            .project-title {
+                @include ms-font-xxl();
+                @include ms-fontWeight-semibold();
+                margin-bottom: 20px;
+            }
+
+            .project-buttons {
+                margin-left: auto;
+
+                .project-button + .project-button {
+                    margin-left: 20px;
+                }
+            }
+        }   
+
+        .project-subtitle {
+            @include ms-font-l();
+        }
+
+        .project-tags {
+            @include flex-parent(row);
+        }
+    }
+}

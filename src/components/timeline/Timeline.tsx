@@ -1,5 +1,7 @@
 import * as React from "react";
 import { AssetResolver } from "../../assets/AssetResolver";
+import { Dot } from "../dot/Dot";
+import { Tag } from "../tag/Tag";
 import "./Timeline.scss";
 
 export interface ITimelineItem {
@@ -47,9 +49,7 @@ export class Timeline extends React.Component<ITimelineProps, {}> {
                     </div>
                     <div className="timeline-tags">
                         {item.tags && item.tags.map(tag => (
-                            <div className="timeline-tag">
-                                {tag}
-                            </div>
+                            <Tag text={tag} />
                         ))}
                     </div>
                 </div>
@@ -58,10 +58,11 @@ export class Timeline extends React.Component<ITimelineProps, {}> {
     }
 
     private renderImage(item: ITimelineItem): JSX.Element {
-        if (item.imageSrc) {
-            return <img src={AssetResolver.resolveAsset(item.imageSrc)} />;
-        } else if (item.icon) {
-            return <i className={`fa fa-${item.icon}`} />;
-        }
+        return (
+            <Dot
+                imageSrc={item.imageSrc}
+                iconClass={item.icon}
+            />
+        );
     }
 }

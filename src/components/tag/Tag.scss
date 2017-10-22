@@ -1,0 +1,13 @@
+@import '../../common/_fabric';
+@import '../../common/_mixins';
+
+.tag-item {
+    @include ms-font-s;
+    padding: 3px;
+    border-radius: 5px;
+    background-color: $ms-color-themePrimary;
+    margin-top: 10px;
+    margin-right: 10px;
+    min-width: 30px;
+    text-align: center;
+}

@@ -1,30 +1,30 @@
-import "./SkillDot.scss";
+import "./Dot.scss";
 import * as React from "react";
 import { AssetResolver } from "../../assets/AssetResolver";
 import { Callout, DirectionalHint } from "office-ui-fabric-react/lib/Callout";
 import { autobind } from "@uifabric/utilities/lib/autobind";
 
-export interface ISkillDotProps {
-    title: string;
+export interface IDotProps {
+    title?: string;
     imageSrc?: string;
     iconClass?: string;
 }
 
-export interface ISkillDotState {
+export interface IDotState {
     hover: boolean;
 }
 
-export class SkillDot extends React.Component<ISkillDotProps, ISkillDotState> {
-    private skillDot: HTMLElement;
+export class Dot extends React.Component<IDotProps, IDotState> {
+    private dot: HTMLElement;
 
-    constructor(props: ISkillDotProps, context: any) {
+    constructor(props: IDotProps, context: any) {
         super(props, context);
         this.state = { hover: false };
     }
 
     public render(): JSX.Element {
         return (
-            <div className="skill-dot" ref={element => this.skillDot = element} onMouseEnter={this.onMouseEnter} onMouseLeave={this.onMouseLeave}>
+            <div className="skill-dot" ref={element => this.dot = element} onMouseEnter={this.onMouseEnter} onMouseLeave={this.onMouseLeave}>
                 <div className="skill-dot-image">
                     {this.renderImage()}
                 </div>
@@ -42,9 +42,9 @@ export class SkillDot extends React.Component<ISkillDotProps, ISkillDotState> {
     }
 
     private renderPopup(): JSX.Element {
-        if (this.state.hover && this.skillDot) {
+        if (this.state.hover && this.dot && this.props.title) {
             return (
-                <Callout className="skill-callout" target={this.skillDot} directionalHint={DirectionalHint.topCenter}>
+                <Callout className="skill-callout" target={this.dot} directionalHint={DirectionalHint.topCenter}>
                     <div className="callout-content">
                         {this.props.title}
                     </div>

@@ -26,13 +26,19 @@
     }
 
     .me-section {
-        background: linear-gradient(rgba(0,0,0, 0.50), rgba(0,0,0, 0.50)), url(http://alex.bettadapur.com/img/intro-bg.jpg);
+        background: linear-gradient(rgba(0,0,0, 0.50), rgba(0,0,0, 0.50)), url(../../assets/intro-bg.jpg);
         background-size: cover;
         height: 100vh;
     }
 
+    .skills-section {
+        background: linear-gradient(rgba(0,0,0, 0.70), rgba(0,0,0, 0.70)), url(../../assets/work.jpg);
+        background-position-y: 80%;
+        background-size: cover;
+    }
+
     .timeline-section {
-        background: linear-gradient(rgba(0,0,0, 0.75), rgba(0,0,0, 0.75)), url(https://upload.wikimedia.org/wikipedia/commons/6/66/HD-Wallpapers1.jpg);
+        background: linear-gradient(rgba(0,0,0, 0.75), rgba(0,0,0, 0.75)), url(../../assets/blue.jpg);
         background-size: cover;
     }
 }
